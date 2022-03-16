@@ -9,5 +9,3 @@ const add = (item) => {
 };
 
 add(anniv);
-
-// ehlo there

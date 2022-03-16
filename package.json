@@ -1,0 +1,21 @@
+{
+  "name": "elk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SouariKarim/Bare-node-js-server.git"
+  },
+  "author": "karimsouari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SouariKarim/Bare-node-js-server/issues"
+  },
+  "homepage": "https://github.com/SouariKarim/Bare-node-js-server#readme"
+}
