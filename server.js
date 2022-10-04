@@ -1,3 +1,5 @@
+// this server handles errors
+
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -7,6 +9,8 @@ const server = http.createServer((req, res) => {
   // the reqest obkject is accessible anywhere in the application
 
   // the url and the file path wich are the same only the index.html wich is the home route
+  // set the file path from the url passed in the request
+  // add public to the url of the file
   let filePath = path.join(
     __dirname,
     'public',
@@ -44,8 +48,9 @@ const server = http.createServer((req, res) => {
     if (err) {
       // if the req url is not valid
 
+      // if there is an error
       if (err.code === 'ENOENT') {
-        // serve the 4040
+        // if the file does not exist
         fs.readFile(
           path.join(__dirname, 'public', '404.html'),
           (err, content) => {
@@ -56,10 +61,12 @@ const server = http.createServer((req, res) => {
           }
         );
       } else {
+        // if there is server error
         res.writeHead(500);
-        res.end(`server errot : ${err.code}`);
+        res.end(`server error : ${err.code}`);
       }
     } else {
+      // if there is no error
       res.writeHead(200);
       res.end(content); //
     }
@@ -67,4 +74,4 @@ const server = http.createServer((req, res) => {
 });
 
 const PORT = 5000;
-server.listen(PORT, () => console.log('server is runnig on prot 5000 ! '));
+server.listen(PORT, () => console.log('server is runnig on port 5000 ! '));
