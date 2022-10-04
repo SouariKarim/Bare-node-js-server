@@ -1,4 +1,4 @@
-// this error does not handle errors
+// this error does not handle errors only serves the files .
 
 const http = require('http');
 const path = require('path');
@@ -6,6 +6,12 @@ const fs = require('fs');
 
 const server = http.createServer((req, res) => {
   // serving a file from the backend
+  // console.log('this is the request');
+  const person = {
+    name: 'karim',
+  };
+
+  console.log(JSON.stringify(person, null, 2));
   if (req.url === '/') {
     fs.readFile(
       path.join(__dirname, 'public', 'index.html'),
@@ -34,3 +40,6 @@ const server = http.createServer((req, res) => {
 
 const PORT = 5000;
 server.listen(PORT, () => console.log('server is listening on port 5000'));
+
+// this is to make a request to one of the routes of the server automatically when we run the scripts
+http.get('http://localhost:5000');
